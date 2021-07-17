@@ -10704,4 +10704,8 @@ main {
   text-shadow: rgba(0, 0, 0, 0.157) 2px 2px;
 }
 
+.strike-through {
+  text-decoration: line-through;
+}
+
 /*# sourceMappingURL=main.css.map */
