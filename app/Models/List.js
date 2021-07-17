@@ -16,25 +16,31 @@ export default class List {
         complete++
       }
     })
+
     return `
-    <div class="col-4 mt-3">
-      <div class="bg-light rounded shadow-light">
-        <div class="d-flex justify-content-around align-items-center rounded-top text-center p-3 bg-${this.color}">
-            <h5>${this.name.toUpperCase()}</h5>
-            <i class="fa fa-trash action text-danger" title="delete list" onclick="app.listsController.deleteList('${this.id}')"></i>
-            <p>${complete}/${tasks.length}</p>
-        </div>
-        <div class="p-2 ">
-            <div>
-                ${this.MyTasks}
+    <div class="mt-3">
+            <div class="bg-light rounded shadow-light">
+                <div class="d-flex justify-content-around align-items-center rounded-top text-light flex-column card-text-shadow text-center p-3 bg-${this.color}">
+                    <div >
+                        <h5 class="">${this.name.toUpperCase()}</h5>
+                    </div>
+                    <div class="d-flex">
+                        <p>${complete}/${tasks.length}</p>
+                        <p class="pl-3"><i class="fa fa-trash action" title="delete list"
+                            onclick="app.listsController.deleteList('${this.id}')"></i></p>
+                    </div>
+                </div>
+                <div class="p-2 ">
+                    <div>
+                        ${this.MyTasks}
+                    </div>
+                </div>
+                <form onsubmit="app.listsController.addTask('${this.id}')">
+                    <input type="text" name="task" placeholder="Add a task..." required>
+                    <button type="submit" class="btn btn-outline-success">+</button>
+                </form>
             </div>
-        </div>
-        <form onsubmit="app.listsController.addTask('${this.id}')"> 
-          <input type="text" name="task" placeholder="Add a task..." required>
-          <button type="submit" class="btn btn-outline-success">+</button>
-        </form>
-      </div>
-    </div>`
+        </div>`
   }
   get MyTasks() {
     let template = ''
