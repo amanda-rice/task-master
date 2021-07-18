@@ -25,9 +25,16 @@ text-shadow: rgba(0, 0, 0, 0.157) 2px 2px;
   text-decoration:line-through;
 }
 .list-cards{
-  min-height: 30vh;
+  min-height: 45vh;
   min-width: 350px;
 }
 #list-card{
   overflow-x: scroll;
+}
+.circle {
+    width: 20px;
+    height: 20px;
+    background: #7fee1d;
+    border-radius: 60px;
+    position:absolute;
 }

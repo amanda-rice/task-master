@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js"
 import { loadState, saveState } from "../Utils/LocalStorage.js"
-
+import NotificationService from "../Services/NotificationService.js";
 
 function _draw() {
   let template = ''
@@ -46,11 +46,22 @@ export default class ListsController {
     listsService.addTask(rawTask)
     form.reset()
   }
-  deleteList(id) {
-    listsService.deleteList(id)
+  colors() {
+    console.log("colors")
+    let color = event.target
+    console.log(color)
   }
-  deleteTask(id) {
-    listsService.deleteTask(id)
+  async deleteList(id) {
+    if (await NotificationService.confirmAction("Are you sure want to delete this task?")) {
+      listsService.deleteList(id)
+      NotificationService.toast("Delete successful!")
+    }
+  }
+  async deleteTask(id) {
+    if (await NotificationService.confirmAction("Are you sure want to delete this task?")) {
+      listsService.deleteTask(id)
+      NotificationService.toast("Delete successful!")
+    }
   }
   storeChecked(id) {
     listsService.storeChecked(id)

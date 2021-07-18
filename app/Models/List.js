@@ -12,8 +12,8 @@ export default class List {
   get Template() {
 
     return `
-    <div class="mt-3 p-3 list-cards">
-            <div class="bg-light rounded shadow-light">
+    <div class="mt-3">
+            <div class="bg-light rounded shadow-light list-cards m-3 d-flex flex-column">
                 <div class="d-flex justify-content-around align-items-center rounded-top text-light flex-column card-text-shadow text-center p-3 bg-${this.color}">
                     <div >
                         <h5 class="">${this.name.toUpperCase()}</h5>
@@ -24,14 +24,14 @@ export default class List {
                             onclick="app.listsController.deleteList('${this.id}')"></i></p>
                     </div>
                 </div>
-                <div class="p-2 ">
+                <div class="p-2 flex-grow-1">
                     <div>
                         ${this.MyTasks}
                     </div>
                 </div>
-                <form onsubmit="app.listsController.addTask('${this.id}')">
+                <form onsubmit="app.listsController.addTask('${this.id}')" class="p-2 outline-dark">
                     <input type="text" name="task" placeholder="Add a task..." required minlength="3" maxlength="50">
-                    <button type="submit" class="btn btn-outline-success">+</button>
+                    <button type="submit" class="btn btn-outline-dark">+</button>
                 </form>
             </div>
         </div>`
