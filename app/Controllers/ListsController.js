@@ -2,12 +2,19 @@ import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js"
 import { loadState, saveState } from "../Utils/LocalStorage.js"
 
+
 function _draw() {
   let template = ''
   ProxyState.lists.forEach(list => {
     template += list.Template
   })
   document.getElementById('list-card').innerHTML = template
+}
+function _drawCounts(id) {
+  console.log("id", id)
+  let task = ProxyState.tasks.find(t => t.id == id)
+  let list = ProxyState.lists.find(l => l.id == task.listId)
+  document.getElementById('task-counts-' + list.id).innerText = list.unchecked + '/' + list.total
 }
 export default class ListsController {
   constructor() {
@@ -44,10 +51,9 @@ export default class ListsController {
   }
   deleteTask(id) {
     listsService.deleteTask(id)
-    console.log("delete task", id)
   }
   storeChecked(id) {
     listsService.storeChecked(id)
-    saveState()
+    _drawCounts(id)
   }
 }

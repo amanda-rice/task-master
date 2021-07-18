@@ -10708,4 +10708,13 @@ main {
   text-decoration: line-through;
 }
 
+.list-cards {
+  min-height: 30vh;
+  min-width: 350px;
+}
+
+#list-card {
+  overflow-x: scroll;
+}
+
 /*# sourceMappingURL=main.css.map */
