@@ -5,15 +5,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   /** @type {Value[]} */
-  lists = [
-    new List({
-      name: 'Monday',
-      count: 0
-    }),
-    new List({
-      name: 'Tuesday',
-      count: 0
-    })]
+  lists = []
   tasks = []
 }
 
