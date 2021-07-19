@@ -25,14 +25,13 @@
     </header>
     <main class="container-fluid">
         <div class="row">
-            <div class="col-md-6" id="input-tasks">
-                <form class="d-flex" onsubmit="app.listsController.createList()">
-                    <div class="form-group">
-                        <label for="name">Name</label>
+            <div class="col d-flex align-items-end" id="input-tasks">
+                <form class="d-flex align-items-start px-3" onsubmit="app.listsController.createList()">
+                    <div class="form-group pr-3 create-list">
                         <input type="text" name="name" id="name" class="form-control" placeholder="List Name..."
                             required maxlength="15" minlength="3">
                     </div>
-                    <select name="colors" id="colors" class="align-self-center" required>
+                    <select class="form-select pb-3" aria-label="Choose a color" id="colors" required>
                         <option value="primary" class="text-primary">
                             Light Pink
                         </option>
@@ -49,8 +48,8 @@
                             Salmon
                         </option>
                     </select>
-                    <div class="d-flex align-items-center">
-                        <button type="submit" class="btn">Add</button>
+                    <div class="d-flex create-list pl-3">
+                        <button type="submit" class="btn btn-outline-dark">Add</button>
                     </div>
                 </form>
             </div>
@@ -61,7 +60,7 @@
     </main>
     <footer class="bg-dark text-light">
         <div class="text-center">
-            <p><small>Made with love by Codeworks</small></p>
+            <p><small>Made with ❤ by Amanda Rice</small></p>
         </div>
     </footer>
 

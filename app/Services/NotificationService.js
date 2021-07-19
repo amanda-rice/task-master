@@ -1,15 +1,15 @@
 
 export default class NotificationService {
-  static async confirmAction(title = 'Are you sure?', text = "You won't be able to revert this!") {
+  static async confirmAction(title = 'Are you sure?', text = "This cannot be undone") {
     try {
       const res = await Swal.fire({
         title: title,
         text: text,
-        icon: 'warning',
+        icon: 'question',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: '#4a6670',
+        cancelButtonColor: '#996769',
+        confirmButtonText: 'Confirm Delete'
       })
       console.log(res)
       if (res.isConfirmed) {
@@ -25,8 +25,8 @@ export default class NotificationService {
     Swal.fire({
       title: title,
       icon: display,
-      position: 'top-right',
-      timer: 3000,
+      position: 'bottom-right',
+      timer: 2000,
       toast: true,
       showConfirmButton: false
     })
