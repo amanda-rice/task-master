@@ -22,7 +22,6 @@ export default class ListsController {
     ProxyState.on('tasks', _draw)
     ProxyState.on('lists', saveState)
     ProxyState.on('tasks', saveState)
-    this.createList()
     loadState()
     _draw()
   }
